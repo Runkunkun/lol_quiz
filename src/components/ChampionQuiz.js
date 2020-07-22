@@ -5,7 +5,7 @@ class ChampionQuiz extends React.Component{
     render() {
         return (
             <Container maxWidth="sm">
-                <h1>Champion Quiz</h1>
+                <h1>WIP</h1>
             </Container>
         );
     }
