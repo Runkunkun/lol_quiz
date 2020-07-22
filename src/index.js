@@ -2,16 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter} from "react-router-dom";
-import Router from "./router";
 import NavTab from "./components/NavTab";
+import theme from "./components/QuizTheme";
+import { ThemeProvider } from '@material-ui/styles';
 
 class App extends React.Component {
     render() {
         return (
-            <div className={App}>
-                <NavTab />
-            </div>
+            <ThemeProvider theme={theme}>
+                <div className={App}>
+                    <NavTab />
+                </div>
+            </ThemeProvider>
         );
     }
 }

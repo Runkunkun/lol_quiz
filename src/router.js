@@ -1,7 +1,6 @@
 import React from "react";
 import {Route, Switch} from "react-router-dom"
 
-import Home from "./components/Home";
 import ItemQuiz from "./components/ItemQuiz";
 import NavTab from "./components/NavTab";
 
