@@ -102,6 +102,19 @@ class ItemCard extends React.Component{
             }
         }
 
+        const passiveArray = this.state.passive.split(' ')
+            let hit = 0;
+
+            for(let i=0;i<passiveArray.length;i++){
+                if (this.state.passiveCheck.includes(passiveArray[i])){
+                    hit++;
+                }
+            }
+
+            if (hit === this.state.passiveCheck.length){
+                checkedPassive = 'Probably Right';
+            }
+
         this.setState({
             nameLabel: checkedName,
             statsLabel: checkedStats,
