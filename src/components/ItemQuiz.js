@@ -125,7 +125,26 @@ class ItemCard extends React.Component{
     }
 
     handleNextItem(event){
+        const choosenIndex = (Math.floor(Math.random() * 10))%3;
 
+        this.setState({
+            imageURL: itemData[choosenIndex].imageURL,
+            name: '',
+            stats: [],
+            passive: '',
+            cost: '',
+            components: [],
+            nameCheck: itemData[choosenIndex].name,
+            statsCheck: itemData[choosenIndex].stats,
+            passiveCheck: itemData[choosenIndex].passive,
+            costCheck: itemData[choosenIndex].cost,
+            componentsCheck: itemData[choosenIndex].components,
+            nameLabel: 'Name',
+            statsLabel: 'Stats',
+            passiveLabel: 'Passive',
+            costLabel: 'Cost',
+            componentsLabel: 'Components',
+        });
     }
 
     render() {
