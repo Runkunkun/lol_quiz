@@ -63,11 +63,43 @@ class ItemCard extends React.Component{
         let checkedPassive = 'Wrong';
         let checkedCost = 'Wrong';
         let checkedComponents = 'Wrong';
+
         if (this.state.name === this.state.nameCheck){
             checkedName = 'Right';
         }
+
         if (this.state.cost === this.state.costCheck){
             checkedCost = 'Right';
+        }
+
+        const statsArray = this.state.stats.split(', ')
+        if (statsArray.length === this.state.statsCheck.length){
+            let hit = 0;
+
+            for(let i=0;i<statsArray.length;i++){
+                if (this.state.statsCheck.includes(statsArray[i])){
+                    hit++;
+                }
+            }
+
+            if (hit === this.state.statsCheck.length){
+                checkedStats = 'Right';
+            }
+        }
+
+        const componentsArray = this.state.components.split(', ')
+        if (componentsArray.length === this.state.componentsCheck.length){
+            let hit = 0;
+
+            for(let i=0;i<componentsArray.length;i++){
+                if (this.state.componentsCheck.includes(componentsArray[i])){
+                    hit++;
+                }
+            }
+
+            if (hit === this.state.componentsCheck.length){
+                checkedComponents = 'Right';
+            }
         }
 
         this.setState({
@@ -131,7 +163,7 @@ class ItemLegende extends React.Component{
                       <TextField id="demo-stats" label="Stats" variant="outlined" style={formStyle} InputProps={{readOnly: true,}} value="10AP, 20AD, 12AS"/>
                       <TextField id="demo-passive" label="Passive" variant="outlined" style={formStyle} InputProps={{readOnly: true,}} value="20% slow for 1 second"/>
                       <TextField id="demo-cost" label="Cost" variant="outlined" style={formStyle} InputProps={{readOnly: true,}} value="450"/>
-                      <TextField id="demo-components" label="Components" variant="outlined" style={formStyle} InputProps={{readOnly: true,}} value="Component1, 40G"/>
+                      <TextField id="demo-components" label="Components" variant="outlined" style={formStyle} InputProps={{readOnly: true,}} value="Component One, 40G"/>
               </Paper>
             </Container>
         );
