@@ -27,10 +27,10 @@ class ItemCard extends React.Component{
         this.state = {
             imageURL: itemData[choosenIndex].imageURL,
             name: '',
-            stats: [],
+            stats: '',
             passive: '',
             cost: '',
-            components: [],
+            components: '',
             nameCheck: itemData[choosenIndex].name,
             statsCheck: itemData[choosenIndex].stats,
             passiveCheck: itemData[choosenIndex].passive,
@@ -131,10 +131,10 @@ class ItemCard extends React.Component{
         this.setState({
             imageURL: itemData[choosenIndex].imageURL,
             name: '',
-            stats: [],
+            stats: '',
             passive: '',
             cost: '',
-            components: [],
+            components: '',
             nameCheck: itemData[choosenIndex].name,
             statsCheck: itemData[choosenIndex].stats,
             passiveCheck: itemData[choosenIndex].passive,
@@ -198,11 +198,11 @@ class ItemCard extends React.Component{
                             <img src={require("../picture_stash/items/"+this.state.imageURL)} style={formStyle} alt="Item"/>
                         </Container>
                         <Container>
-                        <TextField id="item-name" name="name" label={this.state.nameLabel} variant="outlined" style={formStyle} onChange={this.handleInputChange}/>
-                        <TextField id="item-stats" name="stats" label={this.state.statsLabel} variant="outlined" style={formStyle} onChange={this.handleInputChange}/>
-                        <TextField id="item-passive" name="passive" label={this.state.passiveLabel} variant="outlined" style={formStyle} onChange={this.handleInputChange}/>
-                        <TextField id="item-cost" name="cost" label={this.state.costLabel} variant="outlined" style={formStyle} onChange={this.handleInputChange}/>
-                        <TextField id="item-components" name="components" label={this.state.componentsLabel} variant="outlined" style={formStyle} onChange={this.handleInputChange}/>
+                        <TextField id="item-name" name="name" label={this.state.nameLabel} variant="outlined" style={formStyle} onChange={this.handleInputChange} value={this.state.name}/>
+                        <TextField id="item-stats" name="stats" label={this.state.statsLabel} variant="outlined" style={formStyle} onChange={this.handleInputChange} value={this.state.stats}/>
+                        <TextField id="item-passive" name="passive" label={this.state.passiveLabel} variant="outlined" style={formStyle} onChange={this.handleInputChange} value={this.state.passive}/>
+                        <TextField id="item-cost" name="cost" label={this.state.costLabel} variant="outlined" style={formStyle} onChange={this.handleInputChange} value={this.state.cost}/>
+                        <TextField id="item-components" name="components" label={this.state.componentsLabel} variant="outlined" style={formStyle} onChange={this.handleInputChange} value={this.state.components}/>
                         </Container>
                         <Container>
                             <Button variant="contained" color="secondary" style={formStyle} onClick={this.handleCheckInput}>Check</Button>
