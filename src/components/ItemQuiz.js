@@ -89,7 +89,6 @@ class ItemCard extends React.Component{
         }
 
         const componentsArray = this.state.components.split(', ')
-        console.log(componentsArray)
         if (componentsArray.length === this.state.componentsCheck.length){
             let hit = 0;
 
@@ -127,7 +126,7 @@ class ItemCard extends React.Component{
     }
 
     handleNextItem(event){
-        const choosenIndex = (Math.floor(Math.random() * 10))%7;
+        const choosenIndex = Math.floor(Math.random() * (12 + 1));
 
         this.setState({
             imageURL: itemData[choosenIndex].imageURL,
