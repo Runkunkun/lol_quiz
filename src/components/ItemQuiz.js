@@ -46,6 +46,7 @@ class ItemCard extends React.Component{
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleCheckInput = this.handleCheckInput.bind(this);
         this.handleNextItem = this.handleNextItem.bind(this);
+        this.handleShowAnswers = this.handleShowAnswers.bind(this);
     }
 
     handleInputChange(event){
@@ -147,6 +148,39 @@ class ItemCard extends React.Component{
         });
     }
 
+    handleShowAnswers(event){
+
+        let statString = '';
+        for(let i=0; i<this.state.statsCheck.length;i++){
+            statString += this.state.statsCheck[i]
+            if(i!==this.state.statsCheck.length-1){
+                statString += ', '
+            }
+        }
+        let passiveString = '';
+        for(let i=0; i<this.state.passiveCheck.length;i++){
+            passiveString += this.state.passiveCheck[i]
+            if(i!==this.state.passiveCheck.length-1){
+                passiveString += ' '
+            }
+        }
+        let componentsString = '';
+        for(let i=0; i<this.state.componentsCheck.length;i++){
+            componentsString += this.state.componentsCheck[i]
+            if(i!==this.state.componentsCheck.length-1){
+                componentsString += ', '
+            }
+        }
+
+        this.setState({
+            nameLabel: this.state.nameCheck,
+            statsLabel: statString,
+            passiveLabel: passiveString,
+            costLabel: this.state.costCheck,
+            componentsLabel: componentsString,
+        });
+    }
+
     render() {
 
         const formStyle = {
@@ -160,18 +194,21 @@ class ItemCard extends React.Component{
             <div className="ItemCard">
                 <Container maxWidth="sm" style={containerStyle}>
                     <Paper elevation={10}>
-                        <div>
+                        <Container>
                             <img src={require("../picture_stash/items/"+this.state.imageURL)} style={formStyle} alt="Item"/>
-                        </div>
+                        </Container>
+                        <Container>
                         <TextField id="item-name" name="name" label={this.state.nameLabel} variant="outlined" style={formStyle} onChange={this.handleInputChange}/>
                         <TextField id="item-stats" name="stats" label={this.state.statsLabel} variant="outlined" style={formStyle} onChange={this.handleInputChange}/>
                         <TextField id="item-passive" name="passive" label={this.state.passiveLabel} variant="outlined" style={formStyle} onChange={this.handleInputChange}/>
                         <TextField id="item-cost" name="cost" label={this.state.costLabel} variant="outlined" style={formStyle} onChange={this.handleInputChange}/>
                         <TextField id="item-components" name="components" label={this.state.componentsLabel} variant="outlined" style={formStyle} onChange={this.handleInputChange}/>
-                        <div>
+                        </Container>
+                        <Container>
                             <Button variant="contained" color="secondary" style={formStyle} onClick={this.handleCheckInput}>Check</Button>
                             <Button variant="contained" color="secondary" style={formStyle} onClick={this.handleNextItem}>Next Item</Button>
-                        </div>
+                            <Button variant="contained" color="secondary" style={formStyle} onClick={this.handleShowAnswers}>Answers</Button>
+                        </Container>
                     </Paper>
                 </Container>
             </div>
@@ -190,7 +227,9 @@ class ItemLegende extends React.Component{
         return(
             <Container maxWidth="sm" style={containerStyle}>
               <Paper elevation={10}>
+                  <div>
                   <FormLabel style={formStyle}>Example Item</FormLabel>
+                  </div>
                       <TextField id="demo-name" label="Name" variant="outlined" style={formStyle} InputProps={{readOnly: true,}} value="ItemName"/>
                       <TextField id="demo-stats" label="Stats" variant="outlined" style={formStyle} InputProps={{readOnly: true,}} value="10AP, 20AD, 12AS"/>
                       <TextField id="demo-passive" label="Passive" variant="outlined" style={formStyle} InputProps={{readOnly: true,}} value="20% slow for 1 second"/>
